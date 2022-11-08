@@ -1,0 +1,15 @@
+﻿name: cancel-in-progress
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo ${{ github.event }}
